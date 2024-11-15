@@ -5,6 +5,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const isUnderMaintainance = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_MAINTAINANCE}`);
+    if (!res.ok) {
+      throw new Error("Failed");
+    }
+    return res.json();
+  } catch {
+    return true;
+  }
+};
+
 export const parseDateTime = (datetime: string) => {
   try {
     // Create a Date object from the provided datetime string
