@@ -24,9 +24,9 @@ async function fetchEventDetails(event_name: string) {
 export default async function EventDetailsPage({
   params,
 }: {
-  params: { event_name: string };
+  params: Promise<{ event_name: string }>;
 }) {
-  const { event_name } = params;
+  const { event_name } = await params;
 
   const event = await fetchEventDetails(event_name);
 
