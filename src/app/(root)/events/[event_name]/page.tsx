@@ -6,8 +6,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import PageHeader from "@/components/ui/page-header";
 import { BASE_URL, parseDateTime } from "@/lib/utils";
+import RegisterEventForm from "../_components/register-event-form";
+import AttendeesList from "../_components/attendees-list";
 
 async function fetchEventDetails(event_name: string) {
   const res = await fetch(`${BASE_URL}/events-api/get-event/${event_name}`, {
@@ -68,6 +71,9 @@ export default async function EventDetailsPage({
           <p>{hosted_by}</p>
         </div>
       </div>
+
+      <RegisterEventForm currentEvent={event_name} />
+      <AttendeesList currentEvent={event_name} />
     </div>
   );
 }
