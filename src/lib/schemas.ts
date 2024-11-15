@@ -14,3 +14,7 @@ export const registerEventFormSchema = z.object({
   email: z.string().email("Invalid email address"),
   semester: z.string().min(1, "Semester is required."),
 });
+
+export const reportFireFormSchema = z.object({
+  location: z.string().min(1, "Location is required."),
+});

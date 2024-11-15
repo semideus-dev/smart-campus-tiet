@@ -11,9 +11,7 @@ export default function DashboardCard({ title, children }: DashboardCardProps) {
     <Card className="h-[250px] w-[300px] my-10 flex flex-col justify-between p-4 rounded-xl border-2 border-b-primary">
       <CardTitle>{title}</CardTitle>
       <CardFooter className="flex p-0 w-full justify-end">
-        <div className="w-fit p-2 rounded-full bg-primary text-white hover:rotate-12">
-          {children}
-        </div>
+        {children}
       </CardFooter>
     </Card>
   );

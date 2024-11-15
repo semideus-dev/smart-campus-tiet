@@ -11,6 +11,8 @@ import DashboardCard from "@/components/cards/dashboard-card";
 import { Edit, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { startInstantMeeting } from "@/lib/meeting/utils";
+import { UserButton } from "@clerk/nextjs";
+import WeatherModule from "./weather/page";
 
 export default function Home() {
   return (
@@ -27,18 +29,21 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 w-full place-items-center gap-2">
         <DashboardCard title="Student Profile">
-          <Edit size={20} />
+          <UserButton />
         </DashboardCard>
         <DashboardCard title="Group Meeting">
-          <Button
-            size="icon"
-            className="p-0 w-fit h-fit flex items-center justify-center"
-            onClick={() => startInstantMeeting()}
-          >
-            <Plus size={20} />
-          </Button>
+          <div className="w-fit p-2 rounded-full bg-primary text-white hover:rotate-12">
+            <Button
+              size="icon"
+              className="p-0 w-fit h-fit flex items-center justify-center"
+              onClick={() => startInstantMeeting()}
+            >
+              <Plus size={20} />
+            </Button>
+          </div>
         </DashboardCard>
       </div>
+      <WeatherModule />
     </div>
   );
 }
