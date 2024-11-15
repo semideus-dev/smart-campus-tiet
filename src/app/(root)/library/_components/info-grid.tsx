@@ -16,8 +16,20 @@ export default function LibraryInfoGrid() {
   } | null>(null);
 
   useEffect(() => {
-    getBudgetData().then((data) => setBudgetData(data));
-    getBookCount().then((data) => setBookCount(data));
+    async function fetchData() {
+      try {
+        const [budget, bookCount] = await Promise.all([
+          getBudgetData(),
+          getBookCount(),
+        ]);
+        setBudgetData(budget);
+        setBookCount(bookCount);
+      } catch {
+        console.error("Error fetching data");
+      }
+    }
+
+    fetchData();
   });
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">

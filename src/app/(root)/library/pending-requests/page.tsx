@@ -13,17 +13,13 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
@@ -54,7 +50,6 @@ import PageHeader from "@/components/ui/page-header";
 import { getBookRequests } from "@/lib/library/utils";
 
 type OrderStatus = "pending" | "approved";
-type OrderSource = "student" | "admin";
 
 interface BookOrder {
   id: string;
@@ -231,7 +226,12 @@ export default function Orders() {
   const [data, setData] = React.useState<BookOrder[]>([]);
 
   React.useEffect(() => {
-    getBookRequests().then((res) => setData(res));
+    async function fetchData() {
+      const data = await getBookRequests();
+      setData(data);
+    }
+
+    fetchData();
   });
 
   const table = useReactTable({

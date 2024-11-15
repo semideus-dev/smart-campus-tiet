@@ -26,7 +26,12 @@ export default function LibraryInvertoryPage() {
   const [booksData, setBooksData] = useState<Book[]>([]);
 
   useEffect(() => {
-    getAllBooks().then((data) => setBooksData(data));
+    async function fetchBooks() {
+      const data = await getAllBooks();
+      setBooksData(data);
+    }
+
+    fetchBooks();
   }, []);
 
   const filteredBooks = booksData.filter(
