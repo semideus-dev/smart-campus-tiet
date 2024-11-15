@@ -6,7 +6,6 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 import { UserProfile } from "@clerk/nextjs";
-import styles from "@/app/styles/account.module.css";
 
 export default function Home() {
   return (
@@ -23,7 +22,7 @@ export default function Home() {
       </div>
       <UserProfile
         routing="hash"
-        appearance={{ elements: { scrollBox: "width:100vw" } }}
+        appearance={{ elements: { rootBox: "w-screen" } }}
       />
     </div>
   );

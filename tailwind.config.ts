@@ -29,8 +29,8 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT: "#d4d4d8",
-          foreground: "#f4f4f5",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -40,7 +40,7 @@ export default {
           DEFAULT: "#e11d48",
           foreground: "#fff1f2",
         },
-        border: "#a1a1aa",
+        border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         chart: {
