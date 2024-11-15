@@ -26,14 +26,16 @@ export default async function EventDetailsPage({
 }: {
   params: { event_name: string };
 }) {
-  const event = await fetchEventDetails(params.event_name);
+  const { event_name } = params;
 
-  const { event_name, hosted_by, datetime, description } = event;
+  const event = await fetchEventDetails(event_name);
+
+  const { event_name: name, hosted_by, datetime, description } = event;
 
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <PageHeader header={event_name} />
+        <PageHeader header={name} />
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
