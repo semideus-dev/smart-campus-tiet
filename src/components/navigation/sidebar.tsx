@@ -62,7 +62,7 @@ export default function Sidebar({ children }: SidebarProps) {
           <Image
             src="/assets/logo.png"
             alt="Logo"
-            width={expanded ? 10 : 0}
+            width={expanded ? 32 : 0}
             height={10}
           />
           <button

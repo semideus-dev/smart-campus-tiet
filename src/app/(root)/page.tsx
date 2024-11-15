@@ -5,7 +5,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
-import { UserProfile } from "@clerk/nextjs";
+import { SignOutButton, UserProfile } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -20,6 +20,7 @@ export default function Home() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
+      <SignOutButton />
       <div className="flex w-full items-center justify-center">
         <UserProfile routing="hash" />
       </div>
