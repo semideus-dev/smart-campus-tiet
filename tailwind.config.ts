@@ -29,8 +29,8 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT: "#3f3f46",
-          foreground: "#71717a",
+          DEFAULT: "#d4d4d8",
+          foreground: "#f4f4f5",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",

@@ -1,7 +1,6 @@
 import Sidebar, {
   MobileSidebar,
   SidebarContent,
-  SidebarItem,
 } from "@/components/navigation/sidebar";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {

@@ -84,7 +84,7 @@ export default function Sidebar({ children }: SidebarProps) {
 export function MobileSidebar({ children }: SidebarProps) {
   return (
     <Sheet>
-      <SheetTrigger className="mr-2 mt-4 h-fit rounded-lg bg-muted p-1">
+      <SheetTrigger className="mr-2 mt-4 h-fit rounded-lg bg-muted-foreground p-1">
         <AlignJustify />
       </SheetTrigger>
       <SheetContent>
