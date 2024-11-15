@@ -1,7 +1,13 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+// AUTH
+import { ClerkProvider, SignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+
+// UI
 import "./globals.css";
 import { cn } from "@/lib/utils";
+
+// NEXT
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
 const appFont = localFont({
   src: "./fonts/AppFont.ttf",
@@ -20,8 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn(appFont.className)}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={cn(appFont.className)}>
+          <SignedOut>
+            <div className="flex h-screen w-screen items-center justify-center">
+              <SignIn routing="hash" />
+            </div>
+          </SignedOut>
+          <SignedIn>{children}</SignedIn>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
