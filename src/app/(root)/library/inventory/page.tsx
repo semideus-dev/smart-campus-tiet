@@ -61,7 +61,7 @@ export default function LibraryInvertoryPage() {
         />
         <Input
           type="search"
-          placeholder="Search books by title or author..."
+          placeholder="Search books by name or author..."
           className="pl-10 text-muted-foreground"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
