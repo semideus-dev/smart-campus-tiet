@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface InfoCardProps {
   title: string;
-  info: string;
+  info: any;
   desc?: string;
   href: string;
   icon: ReactElement;

@@ -20,10 +20,9 @@ export default function Home() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <UserProfile
-        routing="hash"
-        appearance={{ elements: { rootBox: "w-screen" } }}
-      />
+      <div className="flex w-full items-center justify-center">
+        <UserProfile routing="hash" />
+      </div>
     </div>
   );
 }

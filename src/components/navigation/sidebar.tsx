@@ -109,7 +109,7 @@ export function SidebarItem({
   const { expanded } = useContext(SidebarContext);
 
   return (
-    <Link href={href} className="flex">
+    <Link href={href} className="flex z-50">
       <li
         className={`group relative my-1 flex cursor-pointer items-center rounded-md px-3 py-2 font-medium transition-colors ${
           active
