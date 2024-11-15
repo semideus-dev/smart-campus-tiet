@@ -42,3 +42,11 @@ export async function addBookRequest({
     throw new Error("Failed to submit the form");
   }
 }
+
+export async function getBookRequests() {
+  const response = await fetch(`${BASE_URL}/api/get-all-future-books`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch book requests");
+  }
+  return response.json();
+}
