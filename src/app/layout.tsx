@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 // NEXT
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const appFont = localFont({
   src: "./fonts/AppFont.ttf",
@@ -29,12 +30,19 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={cn(appFont.className)}>
-          <SignedOut>
-            <div className="flex h-screen w-screen items-center justify-center">
-              <SignIn routing="hash" />
-            </div>
-          </SignedOut>
-          <SignedIn>{children}</SignedIn>
+          <ThemeProvider
+            attribute={"class"}
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SignedOut>
+              <div className="flex h-screen w-screen items-center justify-center">
+                <SignIn routing="hash" />
+              </div>
+            </SignedOut>
+            <SignedIn>{children}</SignedIn>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

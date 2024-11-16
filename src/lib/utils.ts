@@ -5,6 +5,18 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const getAnnouncements = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/announcements-api/get_announcement`);
+    if (!res.ok) {
+      throw new Error("Failed");
+    }
+    return res.json();
+  } catch {
+    return [];
+  }
+};
+
 export const isUnderMaintainance = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_MAINTAINANCE}`);

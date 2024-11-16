@@ -28,7 +28,9 @@ import {
   CloudFog,
   CalendarDays,
   AlignJustify,
+  ShieldCheck,
 } from "lucide-react";
+import { ModeToggle } from "../ui/theme-toggle";
 
 // Sidebar context type
 interface SidebarContextType {
@@ -57,17 +59,17 @@ export default function Sidebar({ children }: SidebarProps) {
 
   return (
     <aside className="h-screen">
-      <nav className="hidden h-full flex-col border-r bg-white shadow-sm md:flex">
+      <nav className="hidden h-full flex-col border-r bg-white dark:bg-background shadow-sm md:flex">
         <div className="flex items-center justify-between p-4 pb-2">
           <Image
-            src="/assets/logo.png"
+            src="/assets/design.png"
             alt="Logo"
-            width={expanded ? 32 : 0}
+            width={expanded ? 200 : 0}
             height={10}
           />
           <button
             onClick={() => setExpanded((curr) => !curr)}
-            className="rounded-lg bg-gray-50 p-1.5 hover:bg-gray-100"
+            className="rounded-lg bg-gray-50 dark:bg-gray-800 p-1.5 hover:bg-gray-100"
           >
             <AlignJustify />
           </button>
@@ -178,6 +180,12 @@ export function SidebarContent() {
         text="Events"
         href="/events"
       />
+      <SidebarItem
+        icon={<ShieldCheck fontSize={20} />}
+        text="Admin"
+        href="https://web-production-0c17.up.railway.app"
+      />
+      <ModeToggle />
     </>
   );
 }
