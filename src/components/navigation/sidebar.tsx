@@ -116,7 +116,7 @@ export function SidebarItem({
         className={`group relative my-1 flex cursor-pointer items-center rounded-md px-3 py-2 font-medium transition-colors ${
           active
             ? "bg-gradient-to-tr from-purple-200 to-purple-100 text-primary"
-            : "text-gray-600 hover:bg-purple-50"
+            : "text-gray-600 hover:bg-purple-50 dark:hover:bg-gray-800 dark:hover:text-gray-100"
         }`}
       >
         {icon}
